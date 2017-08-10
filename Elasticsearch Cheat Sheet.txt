@@ -1,5 +1,6 @@
-# Elasticsearch cheat sheet version 0.1
+# Elasticsearch cheat sheet version 0.2
 # Author: Henrique Ferreira
+# Author email: henrique.ferreira@nearsoftsolutions.com
 # Usage: PDF Library
 
 # Search queries:
@@ -22,7 +23,7 @@
 
     #Search all documents with a specific language
 
-        curl -XGET 'http://localhost:9200/library/document/_search?q=language:{language}&pretty=true'
+        curl -XGET 'http://localhost:9200/library/document/_search?q=language:spanish&pretty=true'
 
     #Order search by
 
