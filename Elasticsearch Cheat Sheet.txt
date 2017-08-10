@@ -1,4 +1,4 @@
-# Elasticsearch cheat sheet version 0.2
+# Elasticsearch cheat sheet version 0.3
 # Author: Henrique Ferreira
 # Author email: henrique.ferreira@nearsoftsolutions.com
 # Usage: PDF Library
