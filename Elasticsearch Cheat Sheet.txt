@@ -48,9 +48,14 @@
     #Show field mapping for Index/Type (Library/Document)
         curl -XGET 'localhost:9200/library/_mapping/document?pretty'
 
-# GUI Query Composer for Elasticsearch (Mirage)
-    #Provides a GUI to support query generation for Elasticsearch and some sample data to try it out.
-    https://opensource.appbase.io/mirage/
+# Some useful tools for Elasticsearch
+
+    # GUI Query Composer for Elasticsearch (Mirage)
+        #Provides a GUI to support query generation for Elasticsearch and some sample data to try it out.
+        https://opensource.appbase.io/mirage/
+
+    # Chrome extension Sense
+        https://chrome.google.com/webstore/detail/sense-beta/lhjgkmllcaadmopgmanpapmpjgmfcfig
 
 # For further documentation see:
     https://www.elastic.co/guide/en/elasticsearch/reference/current/getting-started.html
