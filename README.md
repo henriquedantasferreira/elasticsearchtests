@@ -1,2 +1,2 @@
 # elasticsearchtests
-Testes with Elasticsearch in Laravel
+Tests with Elasticsearch
