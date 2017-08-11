@@ -3,6 +3,14 @@
 # Author email: henrique.ferreira@nearsoftsolutions.com
 # Usage: PDF Library
 
+# Show all indexes created:
+
+    curl -XGET 'localhost:9200/_cat/indices?v'
+
+# Delete an index:
+
+    curl -X DELETE 'localhost:9200/{INDEX_NAME}'
+
 # Search queries:
 
     #Search all documents in the library (Match_all query)
