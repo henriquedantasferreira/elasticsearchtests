@@ -1,37 +1,38 @@
-# Elasticsearch cheat sheet version 0.3
+# Elasticsearch cheat sheet version 1.0
 # Author: Henrique Ferreira
 # Author email: henrique.ferreira@nearsoftsolutions.com
 # Usage: PDF Library
+# Last updated: 2017-08-14
 
 # Show all indexes created:
 
-    curl -XGET 'localhost:9200/_cat/indices?v'
+    curl -XGET 'localhost:9999/_cat/indices?v'
 
 # Delete an index:
 
-    curl -X DELETE 'localhost:9200/{INDEX_NAME}'
+    curl -X DELETE 'localhost:9999/{INDEX_NAME}'
 
 # Search queries:
 
     #Search all documents in the library (Match_all query)
 
-        curl -XGET 'http://localhost:9200/library/document/_search?pretty=true'
+        curl -XGET 'http://localhost:9999/library/document/_search?pretty=true'
 
     #Search all documents from author X
 
-        curl -XGET 'http://localhost:9200/library/document/_search?q=author:{X}&pretty=true'
+        curl -XGET 'http://localhost:9999/library/document/_search?q=author:{X}&pretty=true'
 
     #Search all documents for keyword word
 
-        curl -XGET 'http://localhost:9200/library/document/_search?q={word}&pretty=true'
+        curl -XGET 'http://localhost:9999/library/document/_search?q={word}&pretty=true'
 
     #Search document by id
 
-        curl -XGET 'http://localhost:9200/library/document/{id}&pretty=true'
+        curl -XGET 'http://localhost:9999/library/document/{id}&pretty=true'
 
     #Search all documents with a specific language
 
-        curl -XGET 'http://localhost:9200/library/document/_search?q=language:spanish&pretty=true'
+        curl -XGET 'http://localhost:9999/library/document/_search?q=language:spanish&pretty=true'
 
     #Order search by
 
@@ -39,22 +40,22 @@
 
         #Order search by publish date (newer first)
 
-            curl -XGET 'localhost:9200/library/document/_search?pretty=true' -d '{"query": {"match_all": {}},"sort": [{"publish date": {"order": "desc"}}]}'
+            curl -XGET 'localhost:9999/library/document/_search?pretty=true' -d '{"query": {"match_all": {}},"sort": [{"publish date": {"order": "desc"}}]}'
 
         #Order search by publish date (older first)
 
-            curl -XGET 'localhost:9200/library/document/_search?pretty=true' -d '{"query": {"match_all": {}},"sort": [{"publish date": {"order": "asc"}}]}'
+            curl -XGET 'localhost:9999/library/document/_search?pretty=true' -d '{"query": {"match_all": {}},"sort": [{"publish date": {"order": "asc"}}]}'
         
 # Index queries:
 
     #Index new document in the library using JSON
 
-        curl -XPUT 'http://localhost:9200/library/document/{id}' -d '{JSON CONTENT}'
+        curl -XPUT 'http://localhost:9999/library/document/{id}' -d '{JSON CONTENT}'
 
 # Show field mappings:
 
     #Show field mapping for Index/Type (Library/Document)
-        curl -XGET 'localhost:9200/library/_mapping/document?pretty'
+        curl -XGET 'localhost:9999/library/_mapping/document?pretty'
 
 # Some useful tools for Elasticsearch
 
