@@ -1,4 +1,4 @@
-# Elasticsearch cheat sheet version 1.1
+# Elasticsearch cheat sheet version 1.2
 # Author: Henrique Ferreira
 # Author email: henrique.ferreira@nearsoftsolutions.com
 # Usage: PDF Library
@@ -92,6 +92,29 @@
         }
 
         NOTE: if you use OR instead of AND it will search for different documents in which only one or both words appear.
+
+    #Limiting the number of returned search results:
+
+            PARAMETER size    
+
+            GET _search
+            {
+                "query": {
+                        "match": {
+                            "page content": 
+                            {
+                                "query": "operations solr elasticsearch data search elastic relevance",
+                                "operator": "or"
+                            }
+                        }
+                }
+                , "highlight": {
+                    "fields" : {
+                        "page content" : {}
+                    }
+                },
+                "size": 5
+            }
 
 # Index queries:
 
