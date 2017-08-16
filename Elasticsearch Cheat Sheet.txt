@@ -1,8 +1,8 @@
-# Elasticsearch cheat sheet version 1.0
+# Elasticsearch cheat sheet version 1.1
 # Author: Henrique Ferreira
 # Author email: henrique.ferreira@nearsoftsolutions.com
 # Usage: PDF Library
-# Last updated: 2017-08-14
+# Last updated: 2017-08-16
 
 # Show all indexes created:
 
@@ -45,7 +45,54 @@
         #Order search by publish date (older first)
 
             curl -XGET 'localhost:9999/library/document/_search?pretty=true' -d '{"query": {"match_all": {}},"sort": [{"publish date": {"order": "asc"}}]}'
-        
+
+
+    #Search for a specific phrase within a document
+
+        GET _search
+        {
+            "query": {
+                    "match_phrase": {
+                        "page content": 
+                        {
+                            "query": "Children just love "
+                        }
+                    }
+            }
+        }
+
+    #Search a phrase that has a specific prefix
+
+        GET _search
+        {
+            "query": {
+                    "match_phrase_prefix": {
+                        "page content": 
+                        {
+                            "query": "weltoffene Land ken",
+                            "slop": 10
+                        }
+                    }
+            }
+        } 
+    
+    #Search all documents that MUST contain different terms
+
+        GET _search
+        {
+            "query": {
+                    "match": {
+                        "page content": 
+                        {
+                            "query": "porsche alzheimer",
+                            "operator": "and"
+                        }
+                    }
+            }
+        }
+
+        NOTE: if you use OR instead of AND it will search for different documents in which only one or both words appear.
+
 # Index queries:
 
     #Index new document in the library using JSON
