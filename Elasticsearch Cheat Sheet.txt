@@ -1,8 +1,8 @@
-# Elasticsearch cheat sheet version 1.2
+# Elasticsearch cheat sheet version 1.3
 # Author: Henrique Ferreira
 # Author email: henrique.ferreira@nearsoftsolutions.com
 # Usage: PDF Library
-# Last updated: 2017-08-16
+# Last updated: 2017-08-17
 
 # Show all indexes created:
 
@@ -75,6 +75,8 @@
                     }
             }
         } 
+
+        NOTE: the slop PARAMETER allows to find a word that is up to 10 spaces off of its correct placement in a phrase query
     
     #Search all documents that MUST contain different terms
 
@@ -115,6 +117,36 @@
                 },
                 "size": 5
             }
+
+    #Search for different terms having different impact in the search results
+
+        GET _search
+        {
+            "query": {
+                    "bool": {
+                        "should": [
+                            {
+                                "term":{
+                                    "page content": {
+                                        "value": "elasticsearch",
+                                        "boost": 2.0
+                                    }
+                                }
+                            }, 
+                            {
+                                "term": {
+                                    "page content": {
+                                        "value": "alzheimer",
+                                        "boost": 5.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+            }
+        }
+
+        NOTE: the PARAMETER boost gives different importance to different terms. Having 2.0 boost will give twice the importance of a term.
 
 # Index queries:
 
